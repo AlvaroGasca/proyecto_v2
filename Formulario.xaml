@@ -1,0 +1,65 @@
+﻿<Window x:Class="proyecto.Formulario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:proyecto"
+        mc:Ignorable="d"
+        Title="Formulario" Height="320" Width="410"
+        Validation.Error="Validation_Error">
+    <Grid>
+        <Label Content="Nombre:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="74,45,0,0" />
+        <TextBox x:Name="mi_nombre"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Height="23"
+                 Margin="0,48,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Path=Nombre, NotifyOnValidationError=True, ValidatesOnDataErrors=True}">
+        </TextBox>
+
+        <Label Content="Apellidos:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,74,0,0" />
+        <TextBox x:Name="mi_apellidos"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Height="23"
+                 Margin="0,76,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Path=Apellidos, NotifyOnValidationError=True, ValidatesOnDataErrors=True}">
+        </TextBox>
+
+        <Label Content="Grupo:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,102,0,0" />
+        <ComboBox x:Name="mi_grupo"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Width="120"
+                  Margin="0,104,0,0"
+                  Text="{Binding Path=Grupo, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+            <ComboBoxItem Content="Si" />
+            <ComboBoxItem Content="No" />
+        </ComboBox>
+
+        <Label Content="Fecha:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,130,0,0" />
+        <DatePicker x:Name="mi_fecha"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Width="120"
+                    Height="23"
+                    SelectedDate="{Binding Path=Fecha, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
+                    Margin="0,131,0,0" />
+
+        <Label Content="Ciudad:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,158,0,0" />
+        <TextBox x:Name="mi_ciudad" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="23" Margin="0,161,0,0" TextWrapping="Wrap" Text="{Binding Path=Ciudad, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+
+        <Label Content="Sala:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="73,189,0,0" />
+        <TextBox x:Name="mi_sala" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="23" Margin="0,192,0,0" TextWrapping="Wrap" Text="{Binding Path=Sala, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+
+        <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,238,0,0" HorizontalAlignment="Center"
+                Validation.Error="Validation_Error">
+            <Button x:Name="ButtonAceptar" Content="Aceptar" Width="80" Margin="5" IsEnabled="False" Click="Agregar" />
+            <Button Content="Cancelar" Width="80" Margin="5" Click="Cancelar" />
+        </StackPanel>
+    </Grid>
+</Window>
